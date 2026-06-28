@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sowbhagya Shree Business Point</title>
+    
+    <!-- External Scripts & Fonts -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    
+    <!-- External CSS (Imported) -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Tailwind Config for Theme Colors -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#b0004a",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#d81b60",
+                        "on-primary-container": "#fff2f3",
+                        "secondary": "#a23955",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fcf9f8",
+                        "on-surface": "#1c1b1b",
+                        "on-surface-variant": "#5a4044",
+                        "surface-container-low": "#f6f3f2",
+                        "surface-container": "#f0eded",
+                        "surface-container-highest": "#e5e2e1",
+                        "background": "#fcf9f8",
+                        "outline-variant": "#e3bdc3",
+                        "tertiary": "#705312",
+                        "tertiary-container": "#8b6b2a",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ffd9de",
+                        "tertiary-fixed": "#ffdea5",
+                        "tertiary-fixed-dim": "#e9c176",
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "caption": ["Inter"],
+                        "display": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-surface text-on-surface font-body-md antialiased overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+
+    <!-- Header -->
+    <header class="bg-surface border-b border-outline-variant shadow-sm docked full-width top-0 sticky z-40 transition-all duration-300" id="main-header">
+        <nav class="flex justify-between items-center w-full px-4 md:px-16 max-w-7xl mx-auto py-2">
+            <!-- UPDATED: Logo Size Increased by ~35% (h-[76px]) -->
+            <a class="flex-shrink-0 flex items-center gap-2 group hover:opacity-80 transition-all duration-300" href="#hero">
+                <img alt="Sowbhagya Shree Business Point" class="h-[76px] w-auto object-contain transition-all duration-300" src="./images/logo.png" />
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="nav-link text-[#1A1A1A] font-semibold text-sm tracking-wide border-b-2 border-primary pb-1 transition-all duration-200" data-section="hero" href="#hero">Home</a>
+                <a class="nav-link text-[#1A1A1A] font-medium text-sm tracking-wide border-b-2 border-transparent pb-1 hover:text-primary transition-all duration-200" data-section="about" href="#about">About</a>
+                <a class="nav-link text-[#1A1A1A] font-medium text-sm tracking-wide border-b-2 border-transparent pb-1 hover:text-primary transition-all duration-200" data-section="services" href="#services">Services</a>
+                <a class="nav-link text-[#1A1A1A] font-medium text-sm tracking-wide border-b-2 border-transparent pb-1 hover:text-primary transition-all duration-200" data-section="contact" href="#contact">Contact</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <a class="hidden md:inline-flex items-center justify-center bg-primary text-white px-6 py-2.5 rounded-lg text-sm font-semibold shadow-md hover:bg-primary-container transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0" href="#contact">
+                    Get Started
+                </a>
+                <button aria-label="Menu" class="md:hidden text-[#1A1A1A] p-2 hover:bg-surface-container rounded-full transition-colors" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                    <span class="material-symbols-outlined text-2xl">menu</span>
+                </button>
+            </div>
+        </nav>
+        <div class="hidden md:hidden absolute top-full left-0 w-full bg-surface border-b border-outline-variant shadow-lg p-4 flex flex-col gap-4" id="mobile-menu">
+            <a class="nav-link-mobile text-[#1A1A1A] font-semibold text-sm block" data-section="hero" href="#hero" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Home</a>
+            <a class="nav-link-mobile text-[#1A1A1A] font-medium text-sm block" data-section="about" href="#about" onclick="document.getElementById('mobile-menu').classList.add('hidden')">About</a>
+            <a class="nav-link-mobile text-[#1A1A1A] font-medium text-sm block" data-section="services" href="#services" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Services</a>
+            <a class="nav-link-mobile text-[#1A1A1A] font-medium text-sm block" data-section="contact" href="#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contact</a>
+            <a class="bg-primary text-white px-4 py-2 rounded-lg text-center font-semibold text-sm block mt-2" href="#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-24 pb-32 overflow-hidden bg-background" id="hero">
+        <div class="absolute inset-0 z-0 opacity-40 pointer-events-none">
+            <div class="absolute -top-[20%] -right-[10%] w-[60%] h-[80%] rounded-full bg-primary-fixed blur-[120px]"></div>
+            <div class="absolute top-[40%] -left-[10%] w-[50%] h-[60%] rounded-full bg-tertiary-fixed blur-[120px]"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 md:px-16 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <div class="col-span-1 lg:col-span-7 flex flex-col items-start text-left gap-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[#1A1A1A] text-xs font-semibold">
+                        <span class="material-symbols-outlined text-[14px]">verified</span>
+                        <span>Authorized Financial Advisors</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl font-bold text-[#1A1A1A] leading-tight">
+                        Your Trusted Partner for <span class="text-tertiary-container relative inline-block">Insurance<svg class="absolute w-full h-3 -bottom-1 left-0 text-tertiary-fixed-dim opacity-40" preserveaspectratio="none" viewbox="0 0 100 10"><path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="4"></path></svg></span>, Loans & Document Services
+                    </h1>
+                    <div class="space-y-4">
+                        <p class="text-lg text-primary font-semibold tracking-tight">
+                            In the financial investment marketing field from 2001 onwards.
+                        </p>
+                        <p class="text-base text-on-surface-variant max-w-2xl leading-relaxed">
+                            We have proven experience in handling Individuals, Elite Individuals, NRIs, SMEs, and Corporate customers with tailored financial architecture.
+                        </p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
+                        <a class="inline-flex justify-center items-center gap-2 bg-primary text-white px-8 py-3.5 rounded-lg font-semibold text-sm shadow-lg shadow-primary/20 hover:bg-primary-container transition-all duration-300 hover:-translate-y-1" href="#contact">
+                            Enquire Now
+                            <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                        </a>
+                        <a class="inline-flex justify-center items-center gap-2 bg-transparent border border-outline text-[#1A1A1A] px-8 py-3.5 rounded-lg font-semibold text-sm hover:bg-surface-container transition-all duration-300" href="#services">
+                            Explore All Services
+                        </a>
+                    </div>
+                    <div class="pt-6 border-t border-outline-variant/60 w-full mt-4">
+                        <p class="text-xs text-on-surface-variant mb-3 uppercase tracking-wider font-semibold">Official Advisors For</p>
+                        <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-bold text-[#1A1A1A]/80">
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">verified</span> LIC of India</span>
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">verified</span> Star Health</span>
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">verified</span> United India</span>
+                            <span class="flex items-center gap-1"><span class="material-symbols-outlined text-primary text-base">verified</span> Niva Bupa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-1 lg:col-span-5 relative mt-12 lg:mt-0">
+                    <div class="relative rounded-2xl overflow-hidden aspect-[4/5] ambient-shadow group border border-outline-variant/30">
+                        <img alt="Professional financial advisor consulting with clients" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" loading="lazy" />
+                        <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/15 to-transparent pointer-events-none"></div>
+                        <div class="absolute bottom-5 left-5 right-5 sm:right-auto bg-white/95 backdrop-blur-md border border-white/80 rounded-full py-2.5 px-4 shadow-xl flex items-center gap-2.5 text-[#1c1b1b] transition-all duration-300 hover:scale-[1.02]">
+                            <span class="relative flex h-2 w-2 flex-shrink-0">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            <div class="flex items-center gap-2 text-xs sm:text-sm font-medium tracking-tight whitespace-nowrap overflow-hidden">
+                                <span class="font-bold text-primary tracking-wider uppercase text-[10px] sm:text-[11px]">Chennai 22K Gold</span>
+                                <span class="text-outline-variant font-light">|</span>
+                                <span>1g: <strong class="font-bold text-[#1A1A1A]" id="rate-22k-1g">₹7,185</strong></span>
+                                <span class="text-outline-variant font-light">|</span>
+                                <span>1 Pavan: <strong class="font-extrabold text-primary" id="rate-22k-8g">₹57,480</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="py-24 bg-surface-container-low" id="about">
+        <div class="max-w-7xl mx-auto px-4 md:px-16">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+                <div class="lg:col-span-5 order-2 lg:order-1 flex flex-col gap-10">
+                    <div class="relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="rounded-3xl overflow-hidden aspect-square ambient-shadow border border-outline-variant/10">
+                                <img alt="Client Consultation" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" loading="lazy" />
+                            </div>
+                            <div class="rounded-3xl overflow-hidden aspect-square ambient-shadow border border-outline-variant/10 mt-8">
+                                <img alt="Signing Document" class="w-full h-full object-cover transition-transform duration-700 hover:scale-105" src="https://images.unsplash.com/photo-1583508915901-b5f84c1dcde1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" loading="lazy" />
+                            </div>
+                        </div>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 bg-surface rounded-full shadow-lg shadow-black/5 flex flex-col items-center justify-center border-4 border-[#e9c176] p-2 text-center z-20">
+                            <span class="material-symbols-outlined text-2xl text-tertiary mb-1">workspace_premium</span>
+                            <span class="text-sm font-bold text-[#1A1A1A] leading-tight">20+ Years</span>
+                            <span class="text-[9px] uppercase tracking-widest text-tertiary font-bold mt-1">Since 2003</span>
+                        </div>
+                    </div>
+                    <div class="relative pl-8 pt-2">
+                        <span class="material-symbols-outlined text-primary/10 text-[80px] absolute -top-8 -left-5 pointer-events-none">format_quote</span>
+                        <div class="relative z-10">
+                            <h4 class="text-[11px] font-bold text-primary uppercase tracking-widest mb-4">Our Mission</h4>
+                            <p class="text-[19px] text-[#1A1A1A] font-semibold leading-[1.65] tracking-tight">
+                                "To provide trustworthy financial guidance and quality documentation services that help individuals and businesses achieve their goals with confidence."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 order-1 lg:order-2 pt-2 flex flex-col justify-center">
+                    <span class="text-[12px] font-bold text-primary uppercase tracking-widest mb-4 block">About Sowbhagya Shree</span>
+                    <h2 class="text-3xl lg:text-[40px] font-bold text-[#1A1A1A] mb-8 leading-[1.15] tracking-tight max-w-xl">
+                        Your Trusted Partner for Loans, Insurance & Document Services
+                    </h2>
+                    <div class="space-y-6 text-[17px] text-on-surface-variant leading-relaxed mb-12">
+                        <p>
+                            At <strong class="text-[#1A1A1A]">Sowbhagya Shree Business Point</strong>, we are committed to helping individuals, families, and businesses meet their financial and documentation needs under one roof.
+                        </p>
+                        <p>
+                            Beginning our journey in <strong class="text-[#1A1A1A]">December 2003</strong> as an agent for LIC of India and United India Insurance, we expanded our portfolio in 2008 to partner with leading NBFCs like HDFC, Cholamandalam, and India Bulls. Today, with over 20 years of continuous service, we provide reliable guidance, personalized solutions, and professional support with absolute transparency.
+                        </p>
+                    </div>
+                    <a href="#services" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-3.5 rounded-xl font-bold text-sm tracking-wide hover:bg-primary/90 hover:shadow-lg transition-all duration-300 group w-max">
+                        Explore Our Services 
+                        <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="py-24 bg-background" id="services">
+        <div class="max-w-7xl mx-auto px-4 md:px-16">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-sm font-semibold text-tertiary-container uppercase tracking-wider mb-2 block">Our Core Services</span>
+                <h2 class="text-3xl font-bold text-[#1A1A1A]">One-Stop Solution for Financial & Document Needs</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-surface rounded-xl p-8 ambient-shadow border border-surface-container-highest hover:border-primary-fixed-dim transition-colors group cursor-pointer" onclick="openServiceModal('loans')">
+                    <div class="w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl text-primary group-hover:text-on-primary">account_balance</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1A1A1A] mb-4">Loan Consultancy</h3>
+                    <p class="text-base text-[#1A1A1A] mb-6 line-clamp-3">
+                        We help customers connect with suitable financial institutions for Home, Business, Personal, and Vehicle loans.
+                    </p>
+                    <button class="inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-tertiary-container transition-colors">
+                        View Loan Types <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="bg-surface rounded-xl p-8 ambient-shadow border border-surface-container-highest hover:border-primary-fixed-dim transition-colors group cursor-pointer" onclick="openServiceModal('insurance')">
+                    <div class="w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl text-primary group-hover:text-on-primary">shield_person</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1A1A1A] mb-4">Insurance Advisory</h3>
+                    <p class="text-base text-[#1A1A1A] mb-6 line-clamp-3">
+                        Protect yourself, your family, and your business with the right Health, Life, Motor, and Commercial insurance solutions.
+                    </p>
+                    <button class="inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-tertiary-container transition-colors">
+                        View Insurance Plans <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="relative bg-primary/5 rounded-xl p-8 ambient-shadow border-2 border-primary hover:bg-primary/10 transition-colors group cursor-pointer" onclick="openServiceModal('xerox')">
+                    <span class="absolute top-6 right-6 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">Popular</span>
+                    <div class="w-14 h-14 bg-primary text-white rounded-lg flex items-center justify-center mb-6 shadow-md group-hover:scale-105 transition-transform">
+                        <span class="material-symbols-outlined text-3xl">print</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1A1A1A] mb-4">Xerox & Printing Services</h3>
+                    <p class="text-base text-[#1A1A1A] mb-6 line-clamp-3">
+                        Fast, reliable, and affordable document solutions including high-quality Xerox, printouts, scanning, lamination, and spiral binding.
+                    </p>
+                    <button class="inline-flex items-center gap-1 text-sm font-bold text-primary group-hover:translate-x-1 transition-transform">
+                        View Document Services <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </button>
+                </div>
+                <div class="bg-surface rounded-xl p-8 ambient-shadow border border-surface-container-highest hover:border-primary-fixed-dim transition-colors group cursor-pointer" onclick="openServiceModal('stationery')">
+                    <div class="w-14 h-14 bg-surface-container-low rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined text-3xl text-primary group-hover:text-on-primary">edit_document</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-[#1A1A1A] mb-4">Stationery Supplies</h3>
+                    <p class="text-base text-[#1A1A1A] mb-6 line-clamp-3">
+                        We offer a wide range of office and school stationery products including notebooks, pens, folders, and educational materials.
+                    </p>
+                    <button class="inline-flex items-center gap-1 text-sm font-semibold text-primary group-hover:text-tertiary-container transition-colors">
+                        View Product List <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Tools / Calculators -->
+    <section class="py-24 bg-surface-container-low relative" id="calculators">
+        <div class="max-w-7xl mx-auto px-4 md:px-16">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-sm font-semibold text-tertiary-container uppercase tracking-wider mb-2 block">Interactive Tools</span>
+                <h2 class="text-3xl font-bold text-[#1A1A1A]">Financial Planning & Instant Quotes</h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+                <!-- Loan EMI Engine -->
+                <div class="bg-surface rounded-2xl p-8 ambient-shadow border border-surface-variant flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 border-b border-outline-variant pb-4">
+                            <span class="material-symbols-outlined text-primary text-3xl">calculate</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#1A1A1A]">Live Loan EMI Engine</h3>
+                                <p class="text-[11px] text-on-surface-variant">Instant compound interest simulator</p>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-xs font-semibold text-on-surface-variant">Loan Amount</label>
+                                    <span class="text-sm font-bold text-primary bg-primary-fixed/50 px-2.5 py-0.5 rounded-md shadow-sm" id="val-principal">₹50,00,000</span>
+                                </div>
+                                <input id="emi-principal" class="w-full accent-primary cursor-pointer" max="50000000" min="100000" step="50000" type="range" value="5000000" />
+                                <div class="flex justify-between text-[11px] mt-1 text-on-surface-variant/75">
+                                    <span>₹1 Lakh</span><span>₹5 Crores</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-xs font-semibold text-on-surface-variant">Interest Rate (p.a.)</label>
+                                    <span class="text-sm font-bold text-primary bg-primary-fixed/50 px-2.5 py-0.5 rounded-md shadow-sm" id="val-rate">8.5%</span>
+                                </div>
+                                <input id="emi-rate" class="w-full accent-primary cursor-pointer" max="20" min="5" step="0.1" type="range" value="8.5" />
+                                <div class="flex justify-between text-[11px] mt-1 text-on-surface-variant/75">
+                                    <span>5%</span><span>20%</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label class="text-xs font-semibold text-on-surface-variant">Tenure</label>
+                                    <span class="text-sm font-bold text-primary bg-primary-fixed/50 px-2.5 py-0.5 rounded-md shadow-sm" id="val-tenure">15 Years</span>
+                                </div>
+                                <input id="emi-tenure" class="w-full accent-primary cursor-pointer" max="30" min="1" step="1" type="range" value="15" />
+                                <div class="flex justify-between text-[11px] mt-1 text-on-surface-variant/75">
+                                    <span>1 Year</span><span>30 Years</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low p-6 rounded-xl mt-8 border border-outline-variant grid grid-cols-2 gap-4 text-center divide-x divide-outline-variant/60 shadow-inner">
+                        <div class="pr-2">
+                            <p class="text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider mb-1">Monthly EMI</p>
+                            <p class="text-2xl md:text-3xl font-bold text-primary transition-all duration-150" id="out-emi">₹49,237</p>
+                        </div>
+                        <div class="pl-2">
+                            <p class="text-[11px] font-semibold text-on-surface-variant uppercase tracking-wider mb-1">Total Interest</p>
+                            <p class="text-2xl md:text-3xl font-bold text-[#1A1A1A] transition-all duration-150" id="out-interest">₹38,62,683</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quote Desk -->
+                <div class="bg-surface rounded-2xl p-8 ambient-shadow border border-surface-variant flex flex-col justify-between relative overflow-hidden">
+                    <div class="absolute -right-8 -top-8 w-32 h-32 bg-[#25D366]/15 rounded-full blur-3xl pointer-events-none"></div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-6 border-b border-outline-variant pb-4 relative z-10">
+                            <span class="material-symbols-outlined text-[#25D366] text-3xl">support_agent</span>
+                            <div>
+                                <h3 class="text-xl font-bold text-[#1A1A1A]">Instant Quote Desk</h3>
+                                <p class="text-[11px] text-on-surface-variant">Direct senior advisor portfolio matching</p>
+                            </div>
+                        </div>
+                        <div class="space-y-5 relative z-10">
+                            <div>
+                                <label class="block text-xs font-semibold text-on-surface-variant mb-1.5">Insurance Domain</label>
+                                <select id="quote-domain" class="w-full bg-surface-container-low border border-outline-variant/80 rounded-lg px-4 py-3 focus:border-[#25D366] focus:ring-1 focus:ring-[#25D366] transition-all text-[#1A1A1A] text-sm font-medium cursor-pointer">
+                                    <option value="Term Life Insurance">Term Life Insurance (Family Security)</option>
+                                    <option value="Health Insurance">Comprehensive Family Health Plan</option>
+                                    <option value="Vehicle & Fleet">Motor / Fleet Insurance</option>
+                                    <option value="Commercial Property">Shop / Commercial Property Cover</option>
+                                    <option value="Workmen & Business Liability">Business & Workmen Liability</option>
+                                </select>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-on-surface-variant mb-1.5">Required Cover</label>
+                                    <select id="quote-cover" class="w-full bg-surface-container-low border border-outline-variant/80 rounded-lg px-3.5 py-3 text-[#1A1A1A] text-sm font-medium cursor-pointer">
+                                        <option value="₹25 Lakhs">₹25 Lakhs</option>
+                                        <option value="₹50 Lakhs">₹50 Lakhs</option>
+                                        <option value="₹1 Crore" selected>₹1 Crore (100 Lakhs)</option>
+                                        <option value="₹2 Crores">₹2 Crores</option>
+                                        <option value="₹5 Crores+">₹5 Crores+</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-semibold text-on-surface-variant mb-1.5">Applicant Age</label>
+                                    <input id="quote-age" class="w-full bg-surface-container-low border border-outline-variant/80 rounded-lg px-3.5 py-3 text-[#1A1A1A] text-sm font-bold" type="number" min="18" max="75" value="30" />
+                                </div>
+                            </div>
+                            <div class="bg-surface-container-low/80 p-4 rounded-xl border border-outline-variant/50 flex items-center gap-3 text-xs text-on-surface-variant">
+                                <span class="material-symbols-outlined text-primary text-lg flex-shrink-0">verified_user</span>
+                                <span class="leading-relaxed">Official pricing matched directly with institutional underwriting tables. Zero spam guarantee.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-8 pt-4 border-t border-outline-variant/40 relative z-10">
+                        <button onclick="sendWhatsAppQuote()" type="button" class="w-full bg-[#25D366] hover:bg-[#1ebd5a] active:scale-[0.99] text-white py-4 px-6 rounded-xl font-semibold text-sm transition-all duration-200 shadow-xl shadow-[#25D366]/20 flex items-center justify-center gap-2.5 group">
+                            <span class="tracking-wide uppercase font-bold text-[13px]">Get Exact Quote on WhatsApp</span>
+                            <svg class="w-5 h-5 fill-current transition-transform duration-300 group-hover:translate-x-1.5" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location Section -->
+    <section class="py-24 bg-surface" id="contact">
+        <div class="max-w-7xl mx-auto px-4 md:px-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div class="flex flex-col pr-0 lg:pr-8">
+                    <span class="text-[12px] font-bold text-primary uppercase tracking-widest mb-4 block">Get In Touch</span>
+                    <h2 class="text-4xl lg:text-[46px] font-bold text-[#1A1A1A] mb-14 leading-[1.15] tracking-tight">
+                        Drop by our office or connect digitally.
+                    </h2>
+                    <div class="flex flex-col gap-10 mb-14">
+                        <div class="flex items-start gap-6">
+                            <span class="material-symbols-outlined text-primary text-[32px] mt-1">location_on</span>
+                            <div>
+                                <h4 class="text-[13px] uppercase tracking-widest text-on-surface-variant font-bold mb-2">Office Location</h4>
+                                <p class="text-[18px] text-[#1A1A1A] font-medium leading-[1.6]">
+                                    Sowbhagya Shree Business Point,<br>Nainiammal Street, Krishnapuram.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-6">
+                            <span class="material-symbols-outlined text-primary text-[32px] mt-1">schedule</span>
+                            <div>
+                                <h4 class="text-[13px] uppercase tracking-widest text-on-surface-variant font-bold mb-2">Working Hours</h4>
+                                <p class="text-[18px] text-[#1A1A1A] font-medium leading-[1.6]">
+                                    Monday to Saturday<br>
+                                    <span class="text-[15px] text-tertiary font-bold mt-1 block">Closed on Sundays</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-4">
+                        <!-- UPDATED PHONE & WHATSAPP TO 96770 11661 -->
+                        <a href="tel:+919677011661" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-8 py-4 rounded-xl font-bold text-[15px] tracking-wide hover:bg-primary/90 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                            <span class="material-symbols-outlined text-[22px]">call</span> Call Now
+                        </a>
+                        <a href="https://wa.me/919677011661" target="_blank" class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold text-[15px] tracking-wide hover:bg-[#20bd5a] hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+                            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg> WhatsApp Us
+                        </a>
+                    </div>
+                </div>
+                <div class="h-[500px] lg:h-[600px] w-full rounded-[2.5rem] overflow-hidden ambient-shadow border-[6px] border-surface p-1 bg-surface-container-low shadow-xl">
+                    <div class="w-full h-full rounded-[2rem] overflow-hidden bg-gray-200 relative">
+                        <iframe src="https://maps.google.com/maps?q=Nainiammal%20Street,%20Krishnapuram&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Dark Footer -->
+    <footer class="bg-[#111111] py-12 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 md:px-16 text-center flex flex-col items-center">
+            <h3 class="text-[22px] font-bold text-white tracking-widest mb-1 uppercase">Sowbhagya Shree</h3>
+            <p class="text-[12px] text-gray-400 mb-8 uppercase tracking-[0.25em]">Business Point</p>
+            <div class="w-12 h-[2px] bg-primary/50 mx-auto mb-8 rounded-full"></div>
+            <p class="text-[14px] text-gray-500 font-medium">
+                &copy; <script>document.write(new Date().getFullYear())</script> Sowbhagya Shree Business Point. All rights reserved.
+            </p>
+            <p class="text-[12px] text-gray-600 mt-2">
+                Trusted Financial & Document Services Since 2003.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Floating Actions Buttons (UPDATED NUMBER) -->
+    <div class="fixed bottom-8 right-8 z-40 flex flex-col gap-3 floating-actions transition-opacity duration-300">
+        <a aria-label="WhatsApp" class="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg hover:scale-110 transition-transform focus:outline-none" href="https://wa.me/919677011661">
+            <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        </a>
+        <a aria-label="Call" class="w-14 h-14 rounded-full bg-surface text-primary flex items-center justify-center shadow-lg border border-outline-variant hover:bg-primary hover:text-on-primary transition-all focus:outline-none" href="tel:+919677011661">
+            <span class="material-symbols-outlined text-2xl">call</span>
+        </a>
+    </div>
+
+    <!-- Smart Master Modal -->
+    <div id="services-modal" class="fixed inset-0 z-[100] hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 transition-opacity opacity-0 duration-300">
+        <div class="bg-surface w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 relative" id="modal-content">
+            <button onclick="closeServiceModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-surface-container-highest text-[#1A1A1A] transition-colors z-10">
+                <span class="material-symbols-outlined text-[20px]">close</span>
+            </button>
+            <div class="p-8">
+                <!-- Loans Content -->
+                <div id="modal-loans" class="service-detail hidden">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-2xl text-primary">account_balance</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1A1A1A] mb-2">Loan Consultancy</h3>
+                    <p class="text-base text-on-surface-variant mb-6">Financial institution connections for:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Home Loans</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Business Loans</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Personal Loans</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Vehicle Loans</li>
+                    </ul>
+                </div>
+                <!-- Insurance Content -->
+                <div id="modal-insurance" class="service-detail hidden">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-2xl text-primary">shield_person</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1A1A1A] mb-2">Insurance Advisory</h3>
+                    <p class="text-base text-on-surface-variant mb-6">Protection solutions including:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Health Insurance</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Life Insurance</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Motor Insurance</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Commercial Insurance</li>
+                    </ul>
+                </div>
+                <!-- Xerox Content -->
+                <div id="modal-xerox" class="service-detail hidden">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-2xl text-primary">print</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1A1A1A] mb-2">Xerox & Printing Services</h3>
+                    <p class="text-base text-on-surface-variant mb-6">Available document solutions:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Xerox (Black & White / Color)</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Printouts</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Document Scanning</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Lamination</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Spiral Binding</li>
+                    </ul>
+                </div>
+                <!-- Stationery Content -->
+                <div id="modal-stationery" class="service-detail hidden">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <span class="material-symbols-outlined text-2xl text-primary">edit_document</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#1A1A1A] mb-2">Stationery Supplies</h3>
+                    <p class="text-base text-on-surface-variant mb-6">Office and school supplies:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Notebooks</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Pens & Writing Materials</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Folders & Files</li>
+                        <li class="flex items-center gap-3 text-[#1A1A1A] font-medium"><span class="material-symbols-outlined text-[#25D366] text-[18px]">check_circle</span> Educational Materials</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- External JS (Imported) -->
+    <script src="script.js"></script>
+</body>
+</html>
