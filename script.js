@@ -2,11 +2,11 @@
 window.addEventListener('scroll', () => {
     const header = document.getElementById('main-header');
     if (window.scrollY > 40) {
-        header.classList.add('bg-surface/95', 'backdrop-blur-md', 'shadow-md', 'py-2');
-        header.classList.remove('bg-surface');
+        header?.classList.add('bg-surface/95', 'backdrop-blur-md', 'shadow-md', 'py-2');
+        header?.classList.remove('bg-surface');
     } else {
-        header.classList.remove('bg-surface/95', 'backdrop-blur-md', 'shadow-md', 'py-2');
-        header.classList.add('bg-surface');
+        header?.classList.remove('bg-surface/95', 'backdrop-blur-md', 'shadow-md', 'py-2');
+        header?.classList.add('bg-surface');
     }
 });
 
@@ -46,12 +46,13 @@ function openServiceModal(category) {
     const details = document.querySelectorAll('.service-detail');
     
     details.forEach(el => el.classList.add('hidden'));
-    document.getElementById(`modal-${category}`).classList.remove('hidden');
+    const target = document.getElementById(`modal-${category}`);
+    if(target) target.classList.remove('hidden');
     
-    modal.classList.remove('hidden');
+    modal?.classList.remove('hidden');
     setTimeout(() => {
-        modal.classList.remove('opacity-0');
-        modalContent.classList.remove('scale-95');
+        modal?.classList.remove('opacity-0');
+        modalContent?.classList.remove('scale-95');
     }, 10);
 }
 
@@ -59,10 +60,10 @@ function closeServiceModal() {
     const modal = document.getElementById('services-modal');
     const modalContent = document.getElementById('modal-content');
     
-    modal.classList.add('opacity-0');
-    modalContent.classList.add('scale-95');
+    modal?.classList.add('opacity-0');
+    modalContent?.classList.add('scale-95');
     
-    setTimeout(() => { modal.classList.add('hidden'); }, 300);
+    setTimeout(() => { modal?.classList.add('hidden'); }, 300);
 }
 
 document.getElementById('services-modal')?.addEventListener('click', function(e) {
@@ -81,9 +82,13 @@ function calculateLiveEMI() {
     const annualRate = parseFloat(rEl.value);
     const years = parseFloat(tEl.value);
     
-    document.getElementById('val-principal').innerText = '₹' + Number(P).toLocaleString('en-IN');
-    document.getElementById('val-rate').innerText = annualRate + '%';
-    document.getElementById('val-tenure').innerText = years + (years === 1 ? ' Year' : ' Years');
+    const outP = document.getElementById('val-principal');
+    const outR = document.getElementById('val-rate');
+    const outT = document.getElementById('val-tenure');
+
+    if(outP) outP.innerText = '₹' + Number(P).toLocaleString('en-IN');
+    if(outR) outR.innerText = annualRate + '%';
+    if(outT) outT.innerText = years + (years === 1 ? ' Year' : ' Years');
     
     const r = (annualRate / 12) / 100;
     const n = years * 12;
@@ -91,34 +96,62 @@ function calculateLiveEMI() {
     const totalPaid = emi * n;
     const totalInterest = totalPaid - P;
     
-    document.getElementById('out-emi').innerText = '₹' + Math.round(emi).toLocaleString('en-IN');
-    document.getElementById('out-interest').innerText = '₹' + Math.round(totalInterest).toLocaleString('en-IN');
+    const emiTxt = document.getElementById('out-emi');
+    const intTxt = document.getElementById('out-interest');
+
+    if(emiTxt) emiTxt.innerText = '₹' + Math.round(emi).toLocaleString('en-IN');
+    if(intTxt) intTxt.innerText = '₹' + Math.round(totalInterest).toLocaleString('en-IN');
 }
 
-// 5. Quote Desk WhatsApp Trigger (UPDATED NUMBER)
+// Updated Custom Cover Toggle
+function toggleCustomCover(val) {
+    const customWrapper = document.getElementById('quote-custom-cover-wrapper');
+    const customInput = document.getElementById('quote-custom-cover');
+    if (val && val.includes('CUSTOM')) {
+        customWrapper?.classList.remove('hidden');
+        customInput?.focus();
+    } else {
+        customWrapper?.classList.add('hidden');
+    }
+}
+
+// 5. Quote Desk WhatsApp Trigger (Ultimate Bulletproof Version)
 function sendWhatsAppQuote() {
     const domain = document.getElementById('quote-domain')?.value;
-    const cover = document.getElementById('quote-cover')?.value;
+    let cover = document.getElementById('quote-cover')?.value;
+    
+    if (cover && cover.includes('CUSTOM')) {
+        const customInput = document.getElementById('quote-custom-cover');
+        const typedVal = customInput?.value.trim();
+        
+        if (!typedVal) {
+            alert("Please enter your required custom cover amount!");
+            customInput?.focus();
+            return; 
+        }
+        cover = typedVal.startsWith('₹') ? typedVal : `₹${typedVal}`;
+    }
+    
     const age = document.getElementById('quote-age')?.value;
     
-    if(!domain || !cover || !age) return;
+    if(!domain || !cover || !age) {
+        alert("Please fill all the fields!");
+        return;
+    }
     
     const message = `Hi Sowbhagya Shree Team,\n\nI would like to get an accurate institutional quote for my insurance portfolio.\n\n📋 *Applicant Profile:*\n• Category: ${domain}\n• Required Cover: ${cover}\n• Applicant Age: ${age} Years\n\nPlease review your institutional tables and share the best matching plans.`;
     
-    // Updated Number: 9176024156
-    window.open(`https://wa.me/919176024156?text=${encodeURIComponent(message)}`, '_blank');
+    // Direct Page Redirect (Never gets blocked by any browser)
+    window.location.href = "https://wa.me/919176024156?text=" + encodeURIComponent(message);
 }
-
-// 6. On Load Triggers
+// 7. On Load Triggers
 document.addEventListener("DOMContentLoaded", () => {
-    // Setup EMI Calculator Events
     ['emi-principal', 'emi-rate', 'emi-tenure'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.addEventListener('input', calculateLiveEMI);
     });
     calculateLiveEMI();
 
-    // Setup Floating Contact Buttons Hide Logic
     const contactSection = document.getElementById('contact');
     const floatingButtons = document.querySelectorAll('.floating-actions'); 
     
